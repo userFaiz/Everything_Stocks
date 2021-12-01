@@ -12,7 +12,7 @@ import requests
 import tweepy
 from tweepy.api import API
 import yfinance as yf
-import config
+#import config
 from datetime import date, datetime, time, timedelta
 import plotly
 from plotly import graph_objs as go
@@ -40,7 +40,7 @@ pd.options.mode.chained_assignment = None
 yf.pdr_override()
 
 #API's
-newsapi = NewsApiClient(api_key=st.secrets(NEWSapi_key))
+newsapi = NewsApiClient(api_key=st.secrets["NEWSapi_key"])
 auth = tweepy.OAuthHandler(st.secrets["TWITTER_CONSUMER_KEY"], st.secrets["TWITTER_CONSUMER_SECRET"])
 auth.set_access_token(st.secrets["TWITTER_ACSESS_TOKEN"], st.secrets["TWITTER_ACSESS_TOKEN_SECRET"])
 api = tweepy.API(auth, wait_on_rate_limit = True)
