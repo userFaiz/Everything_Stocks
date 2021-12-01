@@ -442,6 +442,7 @@ if tabs == 'Twitter Recommendations':
             st.image(user.profile_image_url, output_format='auto')
             st.subheader("User: " + '@' + user.screen_name + " tweeted: ")
             for tweet in tweets:
+                count = 0
                 if '$' in tweet.full_text:
                     #st.write(tweet)
                     #tweet.truncated = True
@@ -459,6 +460,8 @@ if tabs == 'Twitter Recommendations':
                             st.plotly_chart(chart)
                             st.write((tweet.created_at).strftime("Tweet Posted: %h-%d-%Y" + " at " "%H:%M"))
                             st.text("----------------------------")
+                if count == 0:
+                    st.write("Sorry, " + '@' + user.screen_name + " Has not tweeted any stocks today.")
 
 
 
