@@ -617,6 +617,7 @@ if tabs == 'Home':
                 st.text("---------------------")
 
         if option == 'News Articles':
+            info = yf.Ticker(sym).stats()
             st.subheader("Recent Articles Published About " + "$" + sym.upper() + ": ")
             selection = st.text("Please Choose How You Want Your Data To Be Sorted: ")
             col1, col2, col3 = st.columns([1,1,.6])
@@ -630,9 +631,10 @@ if tabs == 'Home':
             if rel:
                 query = ('$'+ sym)
                 selection.text("")
+                name = info['price']["shortName"]
                 sorter = 'relevancy'
-                yesterday = date.today() - timedelta(7)
-                all_articles = newsapi.get_everything(q = ((query)),
+                yesterday = date.today() - timedelta(30)
+                all_articles = newsapi.get_everything(qintitle = (name or query),
                                       from_param = yesterday,
                                       to = date.today(),
                                       language='en',
@@ -647,21 +649,23 @@ if tabs == 'Home':
                     try:
                         #st.write(item['author'])
                         #st.write(item['source']['name'])
+                        #st.write()
                         st.image(item['urlToImage'])
-                        st.write("Author: " + (item['author']) + " - " + (item['source']['name']))
-                        st.write("Title of article: " + item['title'])
-                        published = item['publishedAt']
-                        st.write("Published On: " + published[0:10]+ ", Time: " + published[11:16])
-                        st.write("Link to article: " + item['url'])
+                        st.write("Author: " + str((item['author'])) + " - " + str((item['source']['name'])))
+                        st.write("Title of article: " + str(item['title']))
+                        published = str(item['publishedAt'])
+                        st.write("Published On: " + str(published[0:10])+ ", Time: " + str(published[11:16]))
+                        st.write("Link to article: " + item["url"])
                     except:
                         continue
     
             if fresh:
                 query = ('$'+ sym)
                 selection.text("")
+                name = info['price']["shortName"]
                 sorter = 'publishedAt'
-                yesterday = date.today() - timedelta(7)
-                all_articles = newsapi.get_everything(q = ((sym) or (query)),
+                yesterday = date.today() - timedelta(30)
+                all_articles = newsapi.get_everything(qintitle = (name or query),
                                       from_param = yesterday,
                                       to = date.today(),
                                       language='en',
@@ -676,20 +680,22 @@ if tabs == 'Home':
                     try:
                         #st.write(item['author'])
                         #st.write(item['source']['name'])
+                        #st.write()
                         st.image(item['urlToImage'])
-                        st.write("Author: " + (item['author']) + " - " + (item['source']['name']))
-                        st.write("Title of article: " + item['title'])
-                        published = item['publishedAt']
-                        st.write("Published On: " + published[0:10]+ ", Time: " + published[11:16])
-                        st.write("Link to article: " + item['url'])
+                        st.write("Author: " + str((item['author'])) + " - " + str((item['source']['name'])))
+                        st.write("Title of article: " + str(item['title']))
+                        published = str(item['publishedAt'])
+                        st.write("Published On: " + str(published[0:10])+ ", Time: " + str(published[11:16]))
+                        st.write("Link to article: " + item["url"])
                     except:
                         continue
             if pop:
                 query = ('$'+ sym)
+                name = info['price']["shortName"]
                 selection.text("")
                 sorter = 'popularity'
-                yesterday = date.today() - timedelta(7)
-                all_articles = newsapi.get_everything(q = ((sym) or (query)),
+                yesterday = date.today() - timedelta(30)
+                all_articles = newsapi.get_everything(qintitle = (name or query),
                                       from_param = yesterday,
                                       to = date.today(),
                                       language='en',
@@ -704,12 +710,13 @@ if tabs == 'Home':
                     try:
                         #st.write(item['author'])
                         #st.write(item['source']['name'])
+                        #st.write()
                         st.image(item['urlToImage'])
-                        st.write("Author: " + (item['author']) + " - " + (item['source']['name']))
-                        st.write("Title of article: " + item['title'])
-                        published = item['publishedAt']
-                        st.write("Published On: " + published[0:10]+ ", Time: " + published[11:16])
-                        st.write("Link to article: " + item['url'])
+                        st.write("Author: " + str((item['author'])) + " - " + str((item['source']['name'])))
+                        st.write("Title of article: " + str(item['title']))
+                        published = str(item['publishedAt'])
+                        st.write("Published On: " + str(published[0:10])+ ", Time: " + str(published[11:16]))
+                        st.write("Link to article: " + item["url"])
                     except:
                         continue
             #yesterday = date.today() - timedelta(3)
@@ -786,5 +793,6 @@ if tabs == 'Home':
                             #st.write(submission.url)
                     #else:
                         #st.text("No recent results found on WSJ for " + '$'+ sym)
+
 
                 
