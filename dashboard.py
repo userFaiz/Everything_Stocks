@@ -41,8 +41,8 @@ yf.pdr_override()
 
 #API's
 newsapi = NewsApiClient(api_key=st.secrets(NEWSapi_key))
-auth = tweepy.OAuthHandler(st.secrets(TWITTER_CONSUMER_KEY), st.secrets(TWITTER_CONSUMER_SECRET))
-auth.set_access_token(st.secrets(TWITTER_ACSESS_TOKEN), st.secrets(TWITTER_ACSESS_TOKEN_SECRET))
+auth = tweepy.OAuthHandler(st.secrets["TWITTER_CONSUMER_KEY"], st.secrets["TWITTER_CONSUMER_SECRET"])
+auth.set_access_token(st.secrets["TWITTER_ACSESS_TOKEN"], st.secrets["TWITTER_ACSESS_TOKEN_SECRET"])
 api = tweepy.API(auth, wait_on_rate_limit = True)
 
 #START = pd.datetime.strptime((date.today() - timedelta(60)).strftime("%Y-%m-%d"), "%Y-%m-%d") 
