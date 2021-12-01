@@ -27,7 +27,6 @@ defusedxml==0.7.1
 entrypoints==0.3
 fake-useragent==0.1.11
 filelock==3.4.0
-finviz @ git+https://github.com/mariostoev/finviz@4f8304abde2a0a9817361652ee24f6f7111ef994
 frozenlist==1.2.0
 get-all-tickers==1.8
 gitdb==4.0.9
