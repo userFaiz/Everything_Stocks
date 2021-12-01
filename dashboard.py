@@ -635,7 +635,7 @@ if tabs == 'Home':
                 name = name.split()[0]
                 sorter = 'relevancy'
                 yesterday = date.today() - timedelta(30)
-                all_articles = newsapi.get_everything(qintitle = (name and query),
+                all_articles = newsapi.get_everything(qintitle = (name),
                                       from_param = yesterday,
                                       to = date.today(),
                                       language='en',
@@ -667,7 +667,7 @@ if tabs == 'Home':
                 name = name.split()[0]
                 sorter = 'publishedAt'
                 yesterday = date.today() - timedelta(30)
-                all_articles = newsapi.get_everything(qintitle = (name and query),
+                all_articles = newsapi.get_everything(qintitle = (name),
                                       from_param = yesterday,
                                       to = date.today(),
                                       language='en',
@@ -698,7 +698,7 @@ if tabs == 'Home':
                 selection.text("")
                 sorter = 'popularity'
                 yesterday = date.today() - timedelta(30)
-                all_articles = newsapi.get_everything(qintitle = (name and query),
+                all_articles = newsapi.get_everything(qintitle = (name),
                                       from_param = yesterday,
                                       to = date.today(),
                                       language='en',
