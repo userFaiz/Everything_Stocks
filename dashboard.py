@@ -472,7 +472,7 @@ if tabs == 'Home':
     col1, col2, col3= st.columns([.5,1.5,.5])
     col2.title("Everything-Stocks" + " 📈")
     image = Image.open('stock.webp')
-    col1, col2, col3= st.columns([.4,1,.5])
+    col1, col2, col3= st.columns([.6,1,.5])
     col2.image(image, width=400)
     #col2.image(image)
     st.subheader("The One Stop Shop For All Things Stocks!")
