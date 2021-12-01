@@ -399,7 +399,7 @@ if tabs == 'Our Recommendations':
                 #if button_squeeze:
                 st.write("Stocks In the Squeeze")
                     #st.write(in_the_squeeze)
-                newl = sort_helper(consolidating)
+                newl = sort_helper(in_the_squeeze)
                 newl.sort(key=sort_key, reverse=True)
                 for i in newl:
                     if newl.index(i) > 10:
