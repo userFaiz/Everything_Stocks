@@ -438,7 +438,7 @@ if tabs == 'Twitter Recommendations':
             else:
                 message.text("USERNAME INVALID please check their @ and try again")
         if valid:
-            tweets = api.user_timeline(screen_name = username, exclude_replies = True, include_rts = False, tweet_mode = 'extended')
+            tweets = api.user_timeline(screen_name = username, exclude_replies = False, include_rts = False, tweet_mode = 'extended')
             st.image(user.profile_image_url, output_format='auto')
             st.subheader("User: " + '@' + user.screen_name + " tweeted: ")
             for tweet in tweets:
