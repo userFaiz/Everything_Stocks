@@ -334,7 +334,7 @@ if tabs == 'Our Recommendations':
             #col1, col2 = st.columns([1,1])
             #msg = st.text("Fetching Today's List...(This may take a few minutes depending on your interent connection)")
             if breakingOut:
-                st.write("Stocks Breaking Out: ")
+                st.subheader("Stocks Breaking Out: ")
                 #st.write(breakingOut)
                 newList = sort_helper(breakingOut)
                 newList.sort(key=sort_key, reverse=True)
@@ -346,7 +346,7 @@ if tabs == 'Our Recommendations':
                     st.plotly_chart(chart)
 
             if breaking_out_squeeze:
-                st.write("Stocks breaking out the squeeze: ")
+                st.subheader("Stocks breaking out the squeeze: ")
                 #st.write(breaking_out_squeeze)
                 #msg.text("Uploaded!")
                 bsquesse = sort_helper(breaking_out_squeeze)
@@ -368,7 +368,7 @@ if tabs == 'Our Recommendations':
             if consolidating_in_squeeze:
                 #button_squeeze_consol = st.button("Good Breakout Potential")
                 #if button_squeeze_consol:
-                    st.write("Stocks Consolidating in the squeeze: ")
+                    st.subheader("Stocks Consolidating in the squeeze: ")
                     newLister = sort_helper(consolidating_in_squeeze)
                     newLister.sort(key=sort_key, reverse=True)
                     for i in newLister:
@@ -381,7 +381,7 @@ if tabs == 'Our Recommendations':
             if consolidating:
                 #button_consol = st.button("Great Setup for Breakout")
                 #if button_consol:
-                st.write("Stocks Consolidating: ")
+                st.subheader("Stocks Consolidating: ")
                 #st.write(consolidating)
                 consol_lister = sort_helper(consolidating)
                 consol_lister.sort(key=sort_key, reverse=True)
@@ -397,7 +397,7 @@ if tabs == 'Our Recommendations':
             if in_the_squeeze:
                 #button_squeeze = st.button("On the Right Track")
                 #if button_squeeze:
-                st.write("Stocks In the Squeeze")
+                st.subheader("Stocks In the Squeeze")
                     #st.write(in_the_squeeze)
                 newl = sort_helper(in_the_squeeze)
                 newl.sort(key=sort_key, reverse=True)
