@@ -490,8 +490,9 @@ if tabs == 'Home':
 
         chart = plot_raw_data()
         col2.plotly_chart(chart)
+        #info = yf.Ticker(sym).stats()
 
-        col1, col2, col3, col4 = st.columns([1,1,1,1])
+        col1, col2, col3,col4 = st.columns([.4,1.2,1,1.3])
 
         buttonData = col2.button("$" + sym.upper() + " Raw Data ")
         if buttonData:
@@ -506,6 +507,7 @@ if tabs == 'Home':
             info = yf.Ticker(sym).stats()
             ##st.write(info['summaryProfile'])
             st.subheader("About " + "$" + sym.upper() + ": ")
+            #st.write(info)
             sector = st.write("Sector: " + info['summaryProfile']["sector"])
             industry = st.write("Industry: " + info['summaryProfile']["industry"])
             summary = st.write((info['summaryProfile']["longBusinessSummary"]))
@@ -513,6 +515,22 @@ if tabs == 'Home':
                 sector.text("")
                 industry.text("")
                 summary.text("")
+        butt_rec = col4.button("Market Recommendations")
+        #st.write(str(info['recommendationTrend']["trend"][3]['strongBuy']))
+        if butt_rec:
+            info = yf.Ticker(sym).stats()
+            st.subheader("Market Recommendations on " + "$" + sym.upper() + ": ")
+            #st.write(info)
+            #text = info['recommendationTrend']["trend"][3]
+            strongBuy = st.write("Strong Buy: " + str(info['recommendationTrend']["trend"][3]['strongBuy']))
+            buy = st.write("Buy: " + str(info['recommendationTrend']["trend"][3]['buy']))
+            hold = st.write(("Hold: " + str(info['recommendationTrend']["trend"][3]['hold'])))
+            sell= st.write(("Sell: " + str(info['recommendationTrend']["trend"][3]['sell'])))
+            if st.button("Hide Market Recommendations"):
+                strongBuy.text("")
+                buy.text("")
+                hold.text("")
+                sell.text("")
     except:
         if sym == "":
             st.text("Please Enter a Ticker Symbol")
