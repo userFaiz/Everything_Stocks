@@ -448,6 +448,7 @@ if tabs == 'Twitter Recommendations':
                     #tweet.truncated = True
                     words = tweet.full_text.split(' ')
                     for word in words:
+                        count = count +1
                         if word.startswith('$') and word[1:].isalpha():
                             sym = word[1:]
                             st.write(tweet.full_text)
@@ -460,8 +461,8 @@ if tabs == 'Twitter Recommendations':
                             st.plotly_chart(chart)
                             st.write((tweet.created_at).strftime("Tweet Posted: %h-%d-%Y" + " at " "%H:%M"))
                             st.text("----------------------------")
-            if count == 0:
-               st.write("Sorry, " + '@' + user.screen_name + " has not tweeted about any stocks today.")
+                if count == 0:
+                    st.write("Sorry, " + '@' + user.screen_name + " has not tweeted about any stocks today.")
 
 
 
