@@ -261,6 +261,8 @@ if tabs == 'Credits':
     image = Image.open('credits.jpeg')
     col1, col2, col3= st.columns([.4,1,.5])
     col2.image(image, width=400)
+    col1, col2, col3= st.columns([.4,1.5,.4])
+    col2.title("Credits")
     st.header("Creator: Faiz Bhimji")
     st.subheader("About Me: ")
     st.write("Everything-Stocks is a side project I made by myself because I was tired of having 10-20 different web pages open when trading stocks just to get the information I need. I decided to make Everything-Stocks becasue I wanted a one website that would give me everything I need to be able to trade. I also made this as a avenue to showcase my python skills and see what all I can do with what I know. I learned so much throughout this project and am definetly happy with the result. Overtime, I hope to improve this platform by enhancing the stock recommendation algorithm, and also enhancing various site features. I hope you enjoy the site! Everything-Stocks is still in beta so I would love to hear about any issues or suggestions you might have for me to improve on!")
