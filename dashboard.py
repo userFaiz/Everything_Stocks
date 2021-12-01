@@ -415,7 +415,7 @@ if tabs == 'Our Recommendations':
 
 if tabs == 'Twitter Recommendations':
     image = Image.open('street.jpeg')
-    col1, col2, col3= st.columns([.4,1,.5])
+    col1, col2, col3= st.columns([.4,1.2,.5])
     col2.image(image, width=400)
     col1, col2, col3= st.columns([.4,1.5,.5])
     col2.title("Twitter Recommendations")
