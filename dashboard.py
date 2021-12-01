@@ -261,7 +261,7 @@ if tabs == 'Credits':
     image = Image.open('credits.jpeg')
     col1, col2, col3= st.columns([.4,1,.5])
     col2.image(image, width=400)
-    col1, col2, col3= st.columns([.4,1.5,.4])
+    col1, col2, col3= st.columns([.4,1,.4])
     col2.title("Credits")
     st.header("Creator: Faiz Bhimji")
     st.subheader("About Me: ")
