@@ -426,6 +426,7 @@ if tabs == 'Twitter Recommendations':
     message = st.text("Don't Include the '@' When Entering the Account, and One Account at a Time Please")
     TWITTER_USERNAMES.append(userFavTrader)
     #col1, col2 = st.columns([2,1])
+    count = 0
     for username in TWITTER_USERNAMES:
         try:
             user = api.get_user(screen_name = username)
@@ -442,7 +443,6 @@ if tabs == 'Twitter Recommendations':
             st.image(user.profile_image_url, output_format='auto')
             st.subheader("User: " + '@' + user.screen_name + " tweeted: ")
             for tweet in tweets:
-                count = 0
                 if '$' in tweet.full_text:
                     #st.write(tweet)
                     #tweet.truncated = True
