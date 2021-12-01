@@ -27,7 +27,7 @@ import yahoo_fin.stock_info as si
 from yahoo_fin.stock_info import get_data, get_quote_table
 import time
 import pandas_datareader as pdr
-import talib
+#import talib
 import ta
 from PIL import Image
 
