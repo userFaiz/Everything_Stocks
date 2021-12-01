@@ -492,7 +492,7 @@ if tabs == 'Home':
         col2.plotly_chart(chart)
         #info = yf.Ticker(sym).stats()
 
-        col1, col2, col3,col4 = st.columns([.4,1.2,1,1.3])
+        col1, col2, col3,col4 = st.columns([.4,1.2,.8,1.3])
 
         buttonData = col2.button("$" + sym.upper() + " Raw Data ")
         if buttonData:
