@@ -527,7 +527,7 @@ if tabs == 'Home':
             hold = st.write(("Hold: " + str(info['recommendationTrend']["trend"][3]['hold'])))
             sell= st.write(("Sell: " + str(info['recommendationTrend']["trend"][3]['sell'])))
             if st.button("Hide Market Recommendations"):
-                strongBuy.text("")
+                strongBuy.text(" ")
                 buy.text("")
                 hold.text("")
                 sell.text("")
