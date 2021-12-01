@@ -26,7 +26,6 @@ decorator==5.1.0
 defusedxml==0.7.1
 entrypoints==0.3
 fake-useragent==0.1.11
-feedparser==6.0.0
 filelock==3.4.0
 finviz @ git+https://github.com/mariostoev/finviz@4f8304abde2a0a9817361652ee24f6f7111ef994
 frozenlist==1.2.0
@@ -86,7 +85,6 @@ pycparser==2.21
 pydeck==0.7.1
 pyee==8.2.2
 Pygments==2.10.0
-pygooglenews==0.1.2
 Pympler==0.9
 pyparsing==3.0.6
 pyppeteer==0.2.6
