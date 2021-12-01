@@ -632,9 +632,10 @@ if tabs == 'Home':
                 query = ('$'+ sym)
                 selection.text("")
                 name = info['price']["shortName"]
+                name = name.split()[0]
                 sorter = 'relevancy'
                 yesterday = date.today() - timedelta(30)
-                all_articles = newsapi.get_everything(qintitle = (name or query),
+                all_articles = newsapi.get_everything(qintitle = (name and query),
                                       from_param = yesterday,
                                       to = date.today(),
                                       language='en',
@@ -663,9 +664,10 @@ if tabs == 'Home':
                 query = ('$'+ sym)
                 selection.text("")
                 name = info['price']["shortName"]
+                name = name.split()[0]
                 sorter = 'publishedAt'
                 yesterday = date.today() - timedelta(30)
-                all_articles = newsapi.get_everything(qintitle = (name or query),
+                all_articles = newsapi.get_everything(qintitle = (name and query),
                                       from_param = yesterday,
                                       to = date.today(),
                                       language='en',
@@ -692,10 +694,11 @@ if tabs == 'Home':
             if pop:
                 query = ('$'+ sym)
                 name = info['price']["shortName"]
+                name = name.split()[0]
                 selection.text("")
                 sorter = 'popularity'
                 yesterday = date.today() - timedelta(30)
-                all_articles = newsapi.get_everything(qintitle = (name or query),
+                all_articles = newsapi.get_everything(qintitle = (name and query),
                                       from_param = yesterday,
                                       to = date.today(),
                                       language='en',
