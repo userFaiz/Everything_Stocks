@@ -137,7 +137,7 @@ def plot_raw_data():
     #fig.update_xaxes(type='category', tick0 = 150, dtick = 250)
     return (fig)
 
-@st.cache(hash_funcs={FooType: hash})
+@st.cache(hash_funcs={FooType: lambda _: None})
 def plot_candle_data(graphdata,sym):
     fig = go.Figure(data=[go.Candlestick(x=graphdata['Date'], open = graphdata['Open'], high = graphdata['High'], low = graphdata['Low'], close = graphdata['Close'])])
     fig.update_yaxes(title_text = 'Price')
