@@ -58,7 +58,7 @@ TODAY = (date.today()).strftime("%Y-%m-%d")
 #TODAY = "2020-11-12"
 
 #Sidebar
-st.sidebar.title("Everything-Stocks")
+st.sidebar.title("Everything-Stocks" + " 📈")
 st.sidebar.title("Navigation Menu")
 tabs = st.sidebar.selectbox("Go To: ", ( 'Home', 'Twitter Recommendations', 'Our Recommendations', 'Credits' ))
 
