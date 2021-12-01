@@ -467,7 +467,7 @@ if tabs == 'Twitter Recommendations':
 
 
 if tabs == 'Home':
-    col1, col2, col3= st.columns([.6,1.2,.5])
+    col1, col2, col3= st.columns([.5,1.6,.5])
     col2.title("Everything-Stocks" + " 📈")
     image = Image.open('stock.webp')
     col1, col2, col3= st.columns([.4,1,.5])
