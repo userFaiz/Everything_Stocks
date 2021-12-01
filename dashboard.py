@@ -614,7 +614,7 @@ if tabs == 'Home':
                 selection.text("")
                 sorter = 'relevancy'
                 yesterday = date.today() - timedelta(7)
-                all_articles = newsapi.get_everything(q = ((sym) or (query)),
+                all_articles = newsapi.get_everything(q = ((query)),
                                       from_param = yesterday,
                                       to = date.today(),
                                       language='en',
