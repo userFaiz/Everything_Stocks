@@ -609,7 +609,7 @@ if tabs == 'Home':
                         st.image(usr.profile_image_url, output_format='auto')
                         st.subheader("User: " + '@' + usr.screen_name + " tweeted: ")
                         st.write((i.full_text))
-                        st.write((i.created_at).strftime("Tweet Posted: %h-%m-%Y" + " at " "%H:%M"))
+                        st.write((i.created_at).strftime("Tweet Posted: %h-%d-%Y" + " at " "%H:%M"))
                         st.text("----------------------------")
 
         if option == 'StockTwits':
