@@ -700,7 +700,7 @@ if tabs == 'Home':
                         st.write("Author: " + str((item['author'])) + " - " + str((item['source']['name'])))
                         st.write("Title of article: " + str(item['title']))
                         published = str(item['publishedAt'])
-                        st.write("Published On: " + str(published[0:10])+ ", Time: " + str(published[11:16]))
+                        st.write("Published On: " str(published[5:10]) + "-" + str(published[0:4]) +  ", Time: " + str(published[11:16]))
                         st.write("Link to article: " + item["url"])
                     except:
                         continue
@@ -731,7 +731,7 @@ if tabs == 'Home':
                         st.write("Author: " + str((item['author'])) + " - " + str((item['source']['name'])))
                         st.write("Title of article: " + str(item['title']))
                         published = str(item['publishedAt'])
-                        st.write("Published On: " + str(published[0:10])+ ", Time: " + str(published[11:16]))
+                        st.write("Published On: " str(published[5:10]) + "-" + str(published[0:4]) +  ", Time: " + str(published[11:16]))
                         st.write("Link to article: " + item["url"])
                     except:
                         continue
