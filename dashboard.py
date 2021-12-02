@@ -314,11 +314,8 @@ if tabs == 'Our Recommendations':
 
                     if (not is_breaking_out(df)):
                         if not is_consolidating(df, percentage=2.5):
-                            superdata = supertrend(df2)
-                            st.write(superdata.iloc[-3]['in_uptrend'])
-                            if superdata.iloc[-3]['in_uptrend']:
-                                in_the_squeeze.append(filename[:-4])
-                                continue
+                            in_the_squeeze.append(filename[:-4])
+                            continue
                         
                 if (df.iloc[-3]['squeeze_on']) and (not df.iloc[-1]['squeeze_on']):
                     superdata = supertrend(df2)
