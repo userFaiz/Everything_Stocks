@@ -82,7 +82,7 @@ def load_data_reg(ticker):
     #yfdata['Date'] = yfdata['Date'][4:]
     return yfdata
 
-#@st.cache
+@st.cache
 def update_csv(symbols):
     ##for symbol in symbols:
     ##data = yf.download(tickers = symbols, threads = True, start = START , end = TODAY )
