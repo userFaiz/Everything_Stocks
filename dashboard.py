@@ -280,9 +280,10 @@ if tabs == 'Our Recommendations':
     consolidating, breakingOut, in_the_squeeze, breaking_out_squeeze, consolidating_in_squeeze = [],[],[],[],[]
     dfSp = si.tickers_sp500()
     st.write("Our Stock Finding Algorithm uses two popular stock indicators (SuperTrend, and TTM Squeeze), which we translated to code in python. The Algorithm then screens the market for any stocks in position to break out. We take these results and then sort the stocks by volume to accurately gauge breakout potential. Click the Run Algorithm button below to start scanning for stocks using real time market data.")
-    st.write("Key: 'Stocks Breaking Out' are stocks that just begun to break consolidation their last candle has broke the consolidation barrier. 'Stocks Breaking Out the Squeeze' are stocks whose last candle has passed the one of the Bands or Channels set by the squeeze. 'Stocks Consolidating in the Squeeze' are stocks that are consolidating between the Bands or Channels set by the squeeze. 'Stocks Consolidating' are stocks trading within limited price ranges developing strong supports to eventually trend. 'Stocks in the Squeeze' are stocks inside the Bands or Channels set by the squeeze.")
     reccomended = st.selectbox("Use the dropdown to navigate between watchlist and breakout candidates", ("Breakout Candidates", "Watchlist of Future Breakouts"))
     col1, col2, col3= st.columns([1,1,.5])
+    #key_button = st.button("Understanding the groups")
+    #col3.write("Key: 'Stocks Breaking Out' are stocks that just begun to break consolidation their last candle has broke the consolidation barrier. 'Stocks Breaking Out the Squeeze' are stocks whose last candle has passed the one of the Bands or Channels set by the squeeze. 'Stocks Consolidating in the Squeeze' are stocks that are consolidating between the Bands or Channels set by the squeeze. 'Stocks Consolidating' are stocks trading within limited price ranges developing strong supports to eventually trend. 'Stocks in the Squeeze' are stocks inside the Bands or Channels set by the squeeze.")
     alg_button = col2.button("Run Algorithm")
     if alg_button:
         msg = st.text("Fetching Today's Breakout List...(This may take a few minutes depending on your interent connection)")
@@ -338,7 +339,7 @@ if tabs == 'Our Recommendations':
             #col1, col2 = st.columns([1,1])
             #msg = st.text("Fetching Today's List...(This may take a few minutes depending on your interent connection)")
             if breakingOut:
-                st.subheader("Stocks Breaking Out: ")
+                st.subheader("Stocks Just Breaking Out: ")
                 #st.write(breakingOut)
                 newList = sort_helper(breakingOut)
                 newList.sort(key=sort_key, reverse=True)
@@ -350,7 +351,8 @@ if tabs == 'Our Recommendations':
                     st.plotly_chart(chart)
 
             if breaking_out_squeeze:
-                st.subheader("Stocks Breaking out the Squeeze: ")
+                #st.subheader("Stocks Breaking out the Squeeze: ")
+                st.subheader("Stocks On The Verge Of Breaking Out: ")
                 #st.write(breaking_out_squeeze)
                 #msg.text("Uploaded!")
                 bsquesse = sort_helper(breaking_out_squeeze)
@@ -372,7 +374,8 @@ if tabs == 'Our Recommendations':
             if consolidating_in_squeeze:
                 #button_squeeze_consol = st.button("Good Breakout Potential")
                 #if button_squeeze_consol:
-                    st.subheader("Stocks Consolidating in the Squeeze: ")
+                    #st.subheader("Stocks Consolidating in the Squeeze: ")
+                    st.subheader("Stocks With Breakout Potential: ")
                     newLister = sort_helper(consolidating_in_squeeze)
                     newLister.sort(key=sort_key, reverse=True)
                     for i in newLister:
@@ -385,7 +388,8 @@ if tabs == 'Our Recommendations':
             if consolidating:
                 #button_consol = st.button("Great Setup for Breakout")
                 #if button_consol:
-                st.subheader("Stocks Consolidating: ")
+                #st.subheader("Stocks Consolidating: ")
+                st.subheader("Stocks With Promising Setups: ")
                 #st.write(consolidating)
                 consol_lister = sort_helper(consolidating)
                 consol_lister.sort(key=sort_key, reverse=True)
@@ -401,7 +405,8 @@ if tabs == 'Our Recommendations':
             if in_the_squeeze:
                 #button_squeeze = st.button("On the Right Track")
                 #if button_squeeze:
-                st.subheader("Stocks In the Squeeze")
+                #st.subheader("Stocks In the Squeeze")
+                st.subheader("Stocks That Are On The Right Track")
                     #st.write(in_the_squeeze)
                 newl = sort_helper(in_the_squeeze)
                 newl.sort(key=sort_key, reverse=True)
@@ -414,7 +419,7 @@ if tabs == 'Our Recommendations':
             msg.text("List Uploaded!")
 
     #st.write(, breakingOut, in_the_squeeze, consolidating_in_squeeze, breaking_out_squeeze)
-        st.write("Done! the program took {} seconds".format(time.time()-start))
+        #st.write("Done! the program took {} seconds".format(time.time()-start))
 
 if tabs == 'Twitter Recommendations':
     image = Image.open('street.jpeg')
