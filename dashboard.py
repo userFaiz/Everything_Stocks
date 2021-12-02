@@ -281,6 +281,7 @@ if tabs == 'Our Recommendations':
     consolidating, breakingOut, in_the_squeeze, breaking_out_squeeze, consolidating_in_squeeze = [],[],[],[],[]
     dfSp = si.tickers_sp500()
     st.write("Our Stock Finding Algorithm uses two popular stock indicators (SuperTrend, and TTM Squeeze), which we translated to code in python. The Algorithm then screens the market for any stocks in position to break out. We take these results and then sort the stocks by volume to accurately gauge breakout potential. Click the Run Algorithm button below to start scanning for stocks using real time market data.")
+    st.write("Key: 'Stocks Breaking Out' are stocks that just begun to break consolidation their last candle has broke the consolidation barrier. 'Stocks Breaking Out the Squeeze' are stocks whose last candle has passed the one of the Bands or Channels set by the squeeze. 'Stocks Consolidating in the Squeeze' are stocks that are consolidating between the Bands or Channels set by the squeeze. 'Stocks Consolidating' are stocks trading within limited price ranges developing strong supports to eventually trend. 'Stocks in the Squeeze' are stocks inside the Bands or Channels set by the squeeze. 
     col1, col2, col3= st.columns([1,1,.5])
     alg_button = col2.button("Run Algorithm")
     if alg_button:
@@ -313,8 +314,11 @@ if tabs == 'Our Recommendations':
 
                     if (not is_breaking_out(df)):
                         if not is_consolidating(df, percentage=2.5):
-                            in_the_squeeze.append(filename[:-4])
-                            continue
+                            superdata = supertrend(df2)
+                            st.write(superdata.iloc[-3]['in_uptrend'])
+                            if superdata.iloc[-3]['in_uptrend']:
+                                in_the_squeeze.append(filename[:-4])
+                                continue
                         
                 if (df.iloc[-3]['squeeze_on']) and (not df.iloc[-1]['squeeze_on']):
                     superdata = supertrend(df2)
@@ -349,7 +353,7 @@ if tabs == 'Our Recommendations':
                     st.plotly_chart(chart)
 
             if breaking_out_squeeze:
-                st.subheader("Stocks breaking out the squeeze: ")
+                st.subheader("Stocks Breaking out the Squeeze: ")
                 #st.write(breaking_out_squeeze)
                 #msg.text("Uploaded!")
                 bsquesse = sort_helper(breaking_out_squeeze)
@@ -371,7 +375,7 @@ if tabs == 'Our Recommendations':
             if consolidating_in_squeeze:
                 #button_squeeze_consol = st.button("Good Breakout Potential")
                 #if button_squeeze_consol:
-                    st.subheader("Stocks Consolidating in the squeeze: ")
+                    st.subheader("Stocks Consolidating in the Squeeze: ")
                     newLister = sort_helper(consolidating_in_squeeze)
                     newLister.sort(key=sort_key, reverse=True)
                     for i in newLister:
